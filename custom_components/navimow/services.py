@@ -8,7 +8,7 @@ from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import config_validation as cv
 
-from mower_sdk.api import MowerAPI
+from .vendor.mower_sdk.api import MowerAPI
 
 from .const import DOMAIN
 

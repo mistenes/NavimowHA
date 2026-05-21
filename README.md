@@ -88,4 +88,8 @@ If the problem continues, please file an issue on GitHub and include relevant lo
 
 ## Navimow SDK Library 📚
 
-This integration uses `navimow-sdk` to communicate with Navimow mowers. `navimow-sdk` provides the Python API used by this integration (details will be expanded in the SDK documentation).
+This fork vendors the `mower_sdk` package and the Paho MQTT client used to
+communicate with Navimow mowers. That avoids Home Assistant trying to install
+`navimow-sdk` from PyPI during startup,
+which can fail in newer Home Assistant/Python environments when stale or malformed
+package metadata is already present.

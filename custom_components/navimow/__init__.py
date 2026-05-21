@@ -50,10 +50,10 @@ async def async_setup(hass: HomeAssistant, config: dict[str, Any]) -> bool:
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up Navimow from a config entry."""
-    # 延迟导入 mower_sdk，避免在加载 config_flow 时触发依赖导入
-    from mower_sdk.api import MowerAPI
-    from mower_sdk.errors import MowerAPIError
-    from mower_sdk.sdk import NavimowSDK
+    # Delay vendored SDK imports so config_flow loading remains lightweight.
+    from .vendor.mower_sdk.api import MowerAPI
+    from .vendor.mower_sdk.errors import MowerAPIError
+    from .vendor.mower_sdk.sdk import NavimowSDK
     
     from .coordinator import NavimowCoordinator
     
@@ -397,5 +397,4 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             hass.data[DOMAIN].pop(entry.entry_id)
 
     return unload_ok
-
 

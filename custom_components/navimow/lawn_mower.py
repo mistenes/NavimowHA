@@ -13,8 +13,8 @@ from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from mower_sdk.api import MowerAPI
-from mower_sdk.models import DeviceStateMessage, MowerCommand
+from .vendor.mower_sdk.api import MowerAPI
+from .vendor.mower_sdk.models import DeviceStateMessage, MowerCommand
 
 from .const import DOMAIN, MOWER_STATUS_TO_ACTIVITY
 from .coordinator import NavimowCoordinator
